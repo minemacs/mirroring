@@ -1,0 +1,20 @@
+name: 'MinEmacs packages mirroring'
+on:
+  push:
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    name: mirror
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          GITHUB_PRIVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Mirror
+        run: |
+         scripts/ssh-setup.sh
+         scripts/mirror-repo.sh https://git.sr.ht/~bzg/org-contrib org-contrib

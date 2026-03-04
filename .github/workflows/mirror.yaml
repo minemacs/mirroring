@@ -39,3 +39,13 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional
           source_ssh_private_key: ${{ secrets.SOURCE_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
           destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
+      - name: consult-dash
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://codeberg.org/ravi/consult-dash.git"
+          source_branch: "master"
+          destination_repo: "git@github.com:minemacs/consult-dash.git"
+          destination_branch: "master"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional
+          source_ssh_private_key: ${{ secrets.SOURCE_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`
+          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }} # optional, will override `SSH_PRIVATE_KEY`

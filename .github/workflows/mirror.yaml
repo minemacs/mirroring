@@ -2,7 +2,7 @@ name: 'MinEmacs packages mirroring'
 on:
   push:
   schedule:
-    - cron: '13 * * * *'
+    - cron: '13 */2 * * *'
   workflow_dispatch:
 
 jobs:
